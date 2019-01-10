@@ -1,0 +1,15 @@
+{
+  "name": "ping-pong",
+  "version": "1.0.0",
+  "description": "Code for ping pong both with bot as well as two player",
+  "main": "app.js",
+  "scripts": {
+    "test": "start app.js"
+  },
+  "author": "Drumil",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
