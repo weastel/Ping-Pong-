@@ -1,4 +1,6 @@
-var speedConstant = 1;
+var list  = [-1,1];
+
+var speedConstant = list[Math.floor(2*Math.random())];
 // Generate random chat hash if needed
 if (!location.hash) {
   location.hash = Math.floor(Math.random() * 0xFFFFFF).toString(16);
@@ -121,8 +123,6 @@ function localDescCreated(desc) {
 }
 
 var opponentPermissions;
-var opponentBallX;
-var opponentBallY;
 
 
 // Hook up data channel event handlers
@@ -140,9 +140,9 @@ function setupDataChannel() {
     }
     document.getElementById('permissions').innerText = opponentPermissions;
 
-    if(JSON.parse(event.data).speedConstant !==undefined )
+    if(JSON.parse(event.data).speedConstant === speedConstant )
     {
-      speedConstant = -JSON.parse(event.data).speedConstant;
+      alert("Use another link");
     }
     if(permissions.permissions == opponentPermissions && opponentPermissions == "start")
     {
@@ -460,11 +460,7 @@ function pausePermissions() {
 
 function startPermissions() {
 
-
-  if(speedConstant === undefined)
-  {
-    speedConstant = 1;
-  }
+  
 
   permissions = {
     permissions:'start',
