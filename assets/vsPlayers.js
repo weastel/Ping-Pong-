@@ -372,13 +372,23 @@ function update() {
   if(user.score === 10)
   {
       ResetGame();
+      permissions = {
+        permissions:'reset',
+        yPosition : user.y,
+        }
+
       document.querySelector(".status").innerHTML = "User has  won the game";
 
   }
   else if (com.score === 10 ) {
 
         ResetGame();
-        document.querySelector(".status").innerHTML = "Com has  won the game,you lose";
+        permissions = {
+          permissions:'reset',
+          yPosition : user.y,
+          }
+
+        document.querySelector(".status").innerHTML = "Opponent has  won the game,you lose";
 
 
   }
@@ -460,11 +470,11 @@ function pausePermissions() {
 
 function startPermissions() {
 
-  
+
 
   permissions = {
     permissions:'start',
-    speedConstant: speedConstant,
+
     yPosition : user.y,
     }
   if(opponentPermissions == 'start')
